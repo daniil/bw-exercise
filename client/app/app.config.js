@@ -15,7 +15,9 @@
     $stateProvider
       .state('home', {
         url: "/",
-        templateUrl: "app/templates/home.tpl.html"
+        templateUrl: "app/templates/home.tpl.html",
+        controller: 'AppCtrl',
+        controllerAs: 'vm'
       });
   }
 })();
