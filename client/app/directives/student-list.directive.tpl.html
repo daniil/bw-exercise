@@ -7,7 +7,7 @@
         <th class="bw-student-list__table__cell">Last Name</th>
         <th class="bw-student-list__table__cell">Grade</th>
         <th class="bw-student-list__table__cell">Comment</th>
-        <th class="bw-student-list__table__cell"></th>
+        <th class="bw-student-list__table__cell">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,31 +17,31 @@
             {{ student.firstName }}
           </span>
           <input type="text" class="bw-student-list__table__input" ng-model="student.firstName" ng-show="student.editableFields.firstName">
-          <a href="#" ng-click="vm.toggleEditable(student, 'firstName', false)" ng-show="student.editableFields.firstName">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'firstName', false)" ng-show="student.editableFields.firstName">&#10003;</a>
         </td>
         <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.lastName }">
           <span class="bw-student-list__table__value" ng-show="!student.editableFields.lastName" ng-click="vm.toggleEditable(student, 'lastName', true);">
             {{ student.lastName }}
           </span>
           <input type="text" class="bw-student-list__table__input" ng-model="student.lastName" ng-show="student.editableFields.lastName">
-          <a href="#" ng-click="vm.toggleEditable(student, 'lastName', false)" ng-show="student.editableFields.lastName">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'lastName', false)" ng-show="student.editableFields.lastName">&#10003;</a>
         </td>
         <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.grade }">
           <span class="bw-student-list__table__value" ng-show="!student.editableFields.grade" ng-click="vm.toggleEditable(student, 'grade', true);">
             {{ student.grade }}
           </span>
           <input type="number" class="bw-student-list__table__input" ng-model="student.grade" ng-show="student.editableFields.grade">
-          <a href="#" ng-click="vm.toggleEditable(student, 'grade', false)" ng-show="student.editableFields.grade">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'grade', false)" ng-show="student.editableFields.grade">&#10003;</a>
         </td>
         <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.comment }">
           <span class="bw-student-list__table__value" ng-show="!student.editableFields.comment" ng-click="vm.toggleEditable(student, 'comment', true);">
             {{ student.comment }}
           </span>
           <textarea class="bw-student-list__table__input" ng-model="student.comment" ng-show="student.editableFields.comment"></textarea>
-          <a href="#" ng-click="vm.toggleEditable(student, 'comment', false)" ng-show="student.editableFields.comment">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'comment', false)" ng-show="student.editableFields.comment">&#10003;</a>
         </td>
-        <td class="bw-student-list__table__cell">
-          <a href="#" class="bw-student-list__table__action" ng-click="vm.removeStudent(student); $event.preventDefault();">x</a>
+        <td class="bw-student-list__table__cell bw-student-list__table__cell--action">
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--danger" ng-click="vm.removeStudent(student); $event.preventDefault();">x</a>
         </td>
       </tr>
     </tbody>

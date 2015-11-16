@@ -3,9 +3,11 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
 body {
   font-family: 'Merriweather', serif;
   font-size: 12px;
@@ -27,7 +29,8 @@ body {
   vertical-align: top;
 }
 
-.bw-student-form__field__input {
+.bw-student-form__field__input,
+.bw-student-list__table__input {
   display: inline-block;
   min-width: 150px;
   padding: 5px;
@@ -36,6 +39,12 @@ body {
   border-radius: 3px;
   vertical-align: middle;
   outline-color: #B3E5FC;
+  font-family: 'Merriweather', serif;
+  font-size: 1em;
+}
+
+.bw-student-list__table__input {
+  margin-left: 0;
 }
 
 .bw-student-form__field__error {
@@ -62,10 +71,67 @@ body {
   }
 }
 
+.bw-student-list__table {
+  width: 100%;
+  padding: 0 25px;
+}
+
+.bw-student-list__table__row {
+  &:nth-child(even) {
+    background-color: #F5F5F5;
+  }
+}
+
+.bw-student-list__table__row--header {
+  text-align: left;
+
+  > .bw-student-list__table__cell {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.bw-student-list__table__cell {
+  width: 23%;
+  padding: 10px 5px;
+  vertical-align: top;
+
+  &:last-child {
+    width: 8%;
+  }
+}
+
+.bw-student-list__table__cell--action {
+  text-align: center;
+}
+
 .bw-student-list__table__cell--editable {
   &:not(.edit-active):hover {
     background-color: #FFECB3;
   }
+}
+
+.bw-student-list__table__value {
+  padding: 6px;
+  display: inline-block;
+}
+
+.bw-student-list__table__action {
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+.bw-student-list__table__action--success {
+  color: #689F38;
+}
+
+.bw-student-list__table__action--danger {
+  color: #F44336;
+}
+
+.bw-student-list__table__action--commit {
+  margin-left: 10px;
 }
 
 .form-field__asterisk {
