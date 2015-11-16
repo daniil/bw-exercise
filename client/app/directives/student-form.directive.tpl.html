@@ -13,10 +13,10 @@
     </div>
     <div class="bw-student-form__field">
       <label for="grade" class="bw-student-form__field__label">Grade:</label>
-      <input type="number" class="bw-student-form__field__input" name="grade" id="grade" ng-model="vm.studentModel.grade" required min="1" max="12">
+      <input type="number" class="bw-student-form__field__input" name="grade" id="grade" ng-model="vm.studentModel.grade" required min="1" max="100">
       <span class="bw-student-form__field__error" ng-show="studentForm.$submitted && studentForm.grade.$error.required">This field is required</span>
       <span class="bw-student-form__field__error" ng-show="studentForm.$submitted && studentForm.grade.$error.min">Minimum grade is 1</span>
-      <span class="bw-student-form__field__error" ng-show="studentForm.$submitted && studentForm.grade.$error.max">Maximum grade is 12</span>
+      <span class="bw-student-form__field__error" ng-show="studentForm.$submitted && studentForm.grade.$error.max">Maximum grade is 100</span>
     </div>
     <div class="bw-student-form__field">
       <label for="comment" class="bw-student-form__field__label">Comment:</label>

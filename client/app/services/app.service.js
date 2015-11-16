@@ -17,13 +17,18 @@
 
     var service = {
       students: students,
-      addStudent: addStudent
+      addStudent: addStudent,
+      removeStudent: removeStudent
     };
 
     return service;
 
     function addStudent(model) {
       students.push(angular.copy(model));
+    }
+
+    function removeStudent(student) {
+      students.splice(students.indexOf(student), 1);
     }
   }
   })();

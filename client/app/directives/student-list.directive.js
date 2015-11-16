@@ -15,9 +15,23 @@ function bwStudentList() {
     return directive;
 }
 
-StudentListCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', 'bwExerciseDataService'];
+StudentListCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', '$window', 'bwExerciseDataService'];
 
-function StudentListCtrl($scope, $element, $attrs, $transclude, bwExerciseDataService) {
+function StudentListCtrl($scope, $element, $attrs, $transclude, $window, bwExerciseDataService) {
     var vm = this;
     vm.students = bwExerciseDataService.students;
+    vm.removeStudent = removeStudent;
+    vm.toggleEditable = toggleEditable;
+
+    function removeStudent(student) {
+      var confirm = $window.confirm('Are you sure you want to delete ' + student.firstName + ' ' + student.lastName + '\'s record?');
+      if (confirm) {
+        bwExerciseDataService.removeStudent(student);
+      }
+    }
+
+    function toggleEditable(student, field, state) {
+      student.editableFields = student.editableFields || {};
+      student.editableFields[field] = state;
+    }
 }
