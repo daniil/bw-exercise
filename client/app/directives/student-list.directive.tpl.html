@@ -1,0 +1,17 @@
+<div class="bw-student-list">
+  <h2>Student List</h2>
+  <table class="bw-student-list__table">
+    <tr class="bw-student-list__table__row bw-student-list__table__row--header">
+      <th class="bw-student-list__table__cell">First Name</th>
+      <th class="bw-student-list__table__cell">Last Name</th>
+      <th class="bw-student-list__table__cell">Grade</th>
+      <th class="bw-student-list__table__cell">Comment</th>
+    </tr>
+    <tr class="bw-student-list__table__row" ng-repeat="student in vm.students">
+      <td class="bw-student-list__table__cell">{{ student.firstName }}</td>
+      <td class="bw-student-list__table__cell">{{ student.lastName }}</td>
+      <td class="bw-student-list__table__cell">{{ student.grade }}</td>
+      <td class="bw-student-list__table__cell">{{ student.comment }}</td>
+    </tr>
+  </table>
+</div>

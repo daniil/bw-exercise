@@ -15,26 +15,21 @@ function bwStudentForm() {
     return directive;
 }
 
-StudentFormCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', 'bwExerciseDataService'];
+StudentFormCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', '$timeout', 'bwExerciseDataService'];
 
-function StudentFormCtrl($scope, $element, $attrs, $transclude, bwExerciseDataService) {
+function StudentFormCtrl($scope, $element, $attrs, $transclude, $timeout, bwExerciseDataService) {
     var vm = this;
-    vm.students = bwExerciseDataService.students;
+    vm.studentModel = {};
     vm.addStudent = addStudent;
 
-    initStudentModel();
-
-    function initStudentModel() {
-      vm.studentModel = {
-        firstName: '',
-        lastName: '',
-        grade: 0,
-        comment: ''
-      };
-    }
-
-    function addStudent() {
-      bwExerciseDataService.addStudent(vm.studentModel);
-      initStudentModel();
+    function addStudent(studentForm) {
+      if (studentForm.$valid) {
+        bwExerciseDataService.addStudent(vm.studentModel);
+        $timeout(function() {
+          vm.studentModel = {};
+          studentForm.$setPristine();
+          studentForm.$setUntouched();
+        });
+      }
     }
 }

@@ -19,10 +19,11 @@
       students: students,
       addStudent: addStudent
     };
+
     return service;
 
     function addStudent(model) {
-      students.push(model);
+      students.push(angular.copy(model));
     }
   }
   })();
