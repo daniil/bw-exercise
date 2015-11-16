@@ -1,0 +1,22 @@
+{
+  "name": "bw-exercise",
+  "homepage": "https://github.com/daniil/bw-exercise",
+  "authors": [
+    "Daniil Molodkov <dmolodkov@infusion.com>"
+  ],
+  "description": "BW Exercise",
+  "main": "index.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-ui-router": "~0.2.15"
+  }
+}
