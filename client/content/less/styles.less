@@ -8,10 +8,73 @@ html {
 }
 body {
   font-family: 'Merriweather', serif;
+  font-size: 12px;
+}
+
+.bw-student-form__field {
+  margin-bottom: 10px;
+}
+
+.bw-student-form__field__label {
+  display: inline-block;
+  min-width: 100px;
+  vertical-align: middle;
+  font-size: 1.1em;
+  text-align: right;
+}
+
+.bw-student-form__field__label--multiline {
+  vertical-align: top;
+}
+
+.bw-student-form__field__input {
+  display: inline-block;
+  min-width: 150px;
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px solid #B6B6B6;
+  border-radius: 3px;
+  vertical-align: middle;
+  outline-color: #B3E5FC;
+}
+
+.bw-student-form__field__error {
+  color: #F44336;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.bw-student-form__button {
+  padding: 7px 25px 5px;
+  margin: 10px 0 0 113px;
+  background-color: #fff;
+  border: 1px solid #03A9F4;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #03A9F4;
+  font-family: 'Merriweather', serif;
+  font-size: 1.25em;
+
+  &:hover,
+  &:active {
+    background-color: #03A9F4;
+    color: #fff;
+  }
 }
 
 .bw-student-list__table__cell--editable {
   &:not(.edit-active):hover {
     background-color: #FFECB3;
+  }
+}
+
+.form-field__asterisk {
+  font-weight: bold;
+  color: #F44336;
+}
+
+.ng-submitted {
+  .ng-invalid {
+    border-color: #F44336;
   }
 }
