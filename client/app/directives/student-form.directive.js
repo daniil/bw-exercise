@@ -1,35 +1,39 @@
-angular
-    .module('bwExerciseApp')
-    .directive('bwStudentForm', bwStudentForm);
+(function() {
+  'use strict';
 
-function bwStudentForm() {
-    var directive = {
-        restrict: 'EA',
-        templateUrl: 'app/directives/student-form.directive.tpl.html',
-        scope: {},
-        controller: StudentFormCtrl,
-        controllerAs: 'vm',
-        bindToController: true
-    };
+  angular
+      .module('bwExerciseApp')
+      .directive('bwStudentForm', bwStudentForm);
 
-    return directive;
-}
+  function bwStudentForm() {
+      var directive = {
+          restrict: 'EA',
+          templateUrl: 'app/directives/student-form.directive.tpl.html',
+          scope: {},
+          controller: StudentFormCtrl,
+          controllerAs: 'vm',
+          bindToController: true
+      };
 
-StudentFormCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', '$timeout', 'bwExerciseDataService'];
+      return directive;
+  }
 
-function StudentFormCtrl($scope, $element, $attrs, $transclude, $timeout, bwExerciseDataService) {
-    var vm = this;
-    vm.studentModel = {};
-    vm.addStudent = addStudent;
+  StudentFormCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', '$timeout', 'bwExerciseDataService'];
 
-    function addStudent(studentForm) {
-      if (studentForm.$valid) {
-        bwExerciseDataService.addStudent(vm.studentModel);
-        $timeout(function() {
-          vm.studentModel = {};
-          studentForm.$setPristine();
-          studentForm.$setUntouched();
-        });
+  function StudentFormCtrl($scope, $element, $attrs, $transclude, $timeout, bwExerciseDataService) {
+      var vm = this;
+      vm.studentModel = {};
+      vm.addStudent = addStudent;
+
+      function addStudent(studentForm) {
+        if (studentForm.$valid) {
+          bwExerciseDataService.addStudent(vm.studentModel);
+          $timeout(function() {
+            vm.studentModel = {};
+            studentForm.$setPristine();
+            studentForm.$setUntouched();
+          });
+        }
       }
-    }
-}
+  }
+})();

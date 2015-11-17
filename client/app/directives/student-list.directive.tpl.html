@@ -12,33 +12,33 @@
     </thead>
     <tbody>
       <tr class="bw-student-list__table__row" ng-repeat="student in vm.students | orderBy:['-grade', 'firstName', 'lastName']">
-        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.firstName }">
-          <span class="bw-student-list__table__value" ng-show="!student.editableFields.firstName" ng-click="vm.toggleEditable(student, 'firstName', true);">
+        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.firstName }" ng-click="vm.toggleEditable(student, 'firstName', true);">
+          <span class="bw-student-list__table__value" ng-show="!student.editableFields.firstName">
             {{ student.firstName }}
           </span>
           <input type="text" class="bw-student-list__table__input" ng-model="student.firstName" ng-show="student.editableFields.firstName">
-          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'firstName', false)" ng-show="student.editableFields.firstName">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'firstName', false); $event.stopPropagation();" ng-show="student.editableFields.firstName">&#10003;</a>
         </td>
-        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.lastName }">
-          <span class="bw-student-list__table__value" ng-show="!student.editableFields.lastName" ng-click="vm.toggleEditable(student, 'lastName', true);">
+        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.lastName }" ng-click="vm.toggleEditable(student, 'lastName', true);">
+          <span class="bw-student-list__table__value" ng-show="!student.editableFields.lastName">
             {{ student.lastName }}
           </span>
           <input type="text" class="bw-student-list__table__input" ng-model="student.lastName" ng-show="student.editableFields.lastName">
-          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'lastName', false)" ng-show="student.editableFields.lastName">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'lastName', false); $event.stopPropagation();" ng-show="student.editableFields.lastName">&#10003;</a>
         </td>
-        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.grade }">
-          <span class="bw-student-list__table__value" ng-show="!student.editableFields.grade" ng-click="vm.toggleEditable(student, 'grade', true);">
+        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.grade }" ng-click="vm.toggleEditable(student, 'grade', true);">
+          <span class="bw-student-list__table__value" ng-show="!student.editableFields.grade">
             {{ student.grade }}
           </span>
           <input type="number" class="bw-student-list__table__input" ng-model="student.grade" ng-show="student.editableFields.grade">
-          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'grade', false)" ng-show="student.editableFields.grade">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'grade', false); $event.stopPropagation();" ng-show="student.editableFields.grade">&#10003;</a>
         </td>
-        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.comment }">
-          <span class="bw-student-list__table__value" ng-show="!student.editableFields.comment" ng-click="vm.toggleEditable(student, 'comment', true);">
+        <td class="bw-student-list__table__cell bw-student-list__table__cell--editable" ng-class="{ 'edit-active': student.editableFields.comment }" ng-click="vm.toggleEditable(student, 'comment', true);">
+          <span class="bw-student-list__table__value" ng-show="!student.editableFields.comment">
             {{ student.comment }}
           </span>
           <textarea class="bw-student-list__table__input" ng-model="student.comment" ng-show="student.editableFields.comment"></textarea>
-          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'comment', false)" ng-show="student.editableFields.comment">&#10003;</a>
+          <a href="#" class="bw-student-list__table__action bw-student-list__table__action--success bw-student-list__table__action--commit" ng-click="vm.toggleEditable(student, 'comment', false); $event.stopPropagation();" ng-show="student.editableFields.comment">&#10003;</a>
         </td>
         <td class="bw-student-list__table__cell bw-student-list__table__cell--action">
           <a href="#" class="bw-student-list__table__action bw-student-list__table__action--danger" ng-click="vm.removeStudent(student); $event.preventDefault();">x</a>

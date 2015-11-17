@@ -1,37 +1,41 @@
-angular
-    .module('bwExerciseApp')
-    .directive('bwStudentList', bwStudentList);
+(function() {
+  'use strict';
 
-function bwStudentList() {
-    var directive = {
-        restrict: 'EA',
-        templateUrl: 'app/directives/student-list.directive.tpl.html',
-        scope: {},
-        controller: StudentListCtrl,
-        controllerAs: 'vm',
-        bindToController: true
-    };
+  angular
+      .module('bwExerciseApp')
+      .directive('bwStudentList', bwStudentList);
 
-    return directive;
-}
+  function bwStudentList() {
+      var directive = {
+          restrict: 'EA',
+          templateUrl: 'app/directives/student-list.directive.tpl.html',
+          scope: {},
+          controller: StudentListCtrl,
+          controllerAs: 'vm',
+          bindToController: true
+      };
 
-StudentListCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', '$window', 'bwExerciseDataService'];
+      return directive;
+  }
 
-function StudentListCtrl($scope, $element, $attrs, $transclude, $window, bwExerciseDataService) {
-    var vm = this;
-    vm.students = bwExerciseDataService.students;
-    vm.removeStudent = removeStudent;
-    vm.toggleEditable = toggleEditable;
+  StudentListCtrl.$inject = ['$scope', '$element', '$attrs', '$transclude', '$window', 'bwExerciseDataService'];
 
-    function removeStudent(student) {
-      var confirm = $window.confirm('Are you sure you want to delete ' + student.firstName + ' ' + student.lastName + '\'s record?');
-      if (confirm) {
-        bwExerciseDataService.removeStudent(student);
+  function StudentListCtrl($scope, $element, $attrs, $transclude, $window, bwExerciseDataService) {
+      var vm = this;
+      vm.students = bwExerciseDataService.students;
+      vm.removeStudent = removeStudent;
+      vm.toggleEditable = toggleEditable;
+
+      function removeStudent(student) {
+        var confirm = $window.confirm('Are you sure you want to delete ' + student.firstName + ' ' + student.lastName + '\'s record?');
+        if (confirm) {
+          bwExerciseDataService.removeStudent(student);
+        }
       }
-    }
 
-    function toggleEditable(student, field, state) {
-      student.editableFields = student.editableFields || {};
-      student.editableFields[field] = state;
-    }
-}
+      function toggleEditable(student, field, state) {
+        student.editableFields = student.editableFields || {};
+        student.editableFields[field] = state;
+      }
+  }
+})();
