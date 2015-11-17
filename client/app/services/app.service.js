@@ -62,6 +62,7 @@
     }
 
     function undoAdd(step) {
+      var stepModelIndex = getStepModelIndex(step);
       students.splice(students.indexOf(step.model), 1);
     }
 
@@ -70,13 +71,7 @@
     }
 
     function undoEdit(step) {
-      var stepModelIndex;
-      students.forEach(function(student, i) {
-        if (student.id === step.model.id) {
-          stepModelIndex = i;
-          return;
-        }
-      });
+      var stepModelIndex = getStepModelIndex(step);
       step.model.editableFields = {};
       students.splice(stepModelIndex, 1, step.model);
     }
@@ -86,6 +81,19 @@
         type: type,
         model: model
       });
+    }
+
+    function getStepModelIndex(step) {
+      var stepModelIndex;
+
+      students.forEach(function(student, i) {
+        if (student.id === step.model.id) {
+          stepModelIndex = i;
+          return;
+        }
+      });
+
+      return stepModelIndex;
     }
 
     function generateTimestamp() {
