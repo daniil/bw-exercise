@@ -34,8 +34,21 @@
       }
 
       function toggleEditable(student, field, state) {
+        if (student.editableFields && student.editableFields[field] === state) {
+          return;
+        }
+
         student.editableFields = student.editableFields || {};
         student.editableFields[field] = state;
+
+        if (state) {
+          student[field + 'Edit'] = student[field];
+        } else {
+          if (student[field] !== student[field + 'Edit']) {
+            bwExerciseDataService.editStudent(student);
+          }
+          student[field] = student[field + 'Edit'];
+        }
       }
   }
 })();

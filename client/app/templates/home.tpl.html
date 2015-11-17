@@ -1,3 +1,9 @@
 <h1>Student List Admin</h1>
+<p class="bw-tools">
+  <span class="bw-tools__label">Tools</span>
+  <span class="bw-tools__action">
+    <button class="bw-tools__action__button" ng-disabled="vm.undoHistory.length === 0" ng-click="vm.undo();">Undo</button>
+  </span>
+</p>
 <section bw-student-form></section>
 <section bw-student-list></section>
